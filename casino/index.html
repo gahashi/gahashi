@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+            name="theme-color"
+            content="#1A0F0A"
+    >
+
+    <title>Gahashi's Dev LUCKY</title>
+
+    <style>
+
+        :root {
+
+            --dark:
+                    #1A0F0A;
+
+            --dark-2:
+                    #110805;
+
+            --panel:
+                    #24120D;
+
+            --wine:
+                    #5A1F1A;
+
+            --red:
+                    #A63D2F;
+
+            --orange:
+                    #D9772B;
+
+            --yellow:
+                    #E5B94A;
+
+            --cream:
+                    #F4E7C5;
+
+        }
+
+        * {
+            box-sizing:
+                    border-box;
+        }
+
+        html {
+            background:
+                    var(--dark);
+        }
+
+        body {
+
+            margin:
+                    0;
+
+            min-height:
+                    100vh;
+
+            display:
+                    flex;
+
+            align-items:
+                    center;
+
+            justify-content:
+                    center;
+
+            padding:
+                    28px;
+
+            overflow-x:
+                    hidden;
+
+            color:
+                    var(--cream);
+
+            font-family:
+                    "Courier New",
+                    Courier,
+                    monospace;
+
+            background:
+
+                    radial-gradient(
+                            circle at 50% 0%,
+                            #5A1F1A 0%,
+                            #31140F 30%,
+                            #1A0F0A 70%
+                    );
+
+        }
+
+        body::before {
+
+            content:
+                    "";
+
+            position:
+                    fixed;
+
+            inset:
+                    0;
+
+            pointer-events:
+                    none;
+
+            opacity:
+                    .15;
+
+            background:
+                    repeating-linear-gradient(
+                            to bottom,
+                            transparent 0,
+                            transparent 2px,
+                            #000 3px,
+                            #000 4px
+                    );
+
+            z-index:
+                    999;
+
+        }
+
+        .casino {
+
+            width:
+                    min(
+                            900px,
+                            100%
+                    );
+
+            position:
+                    relative;
+
+            padding:
+                    30px;
+
+            border:
+                    2px solid
+                    var(--wine);
+
+            border-radius:
+                    22px;
+
+            background:
+                    var(--panel);
+
+            box-shadow:
+
+                    0 0 0 5px
+                    var(--dark-2),
+
+                    0 0 45px
+                    rgba(
+                            166,
+                            61,
+                            47,
+                            .2
+                    );
+
+        }
+
+        .header {
+
+            text-align:
+                    center;
+
+            margin-bottom:
+                    24px;
+
+        }
+
+        .header h1 {
+
+            margin:
+                    0;
+
+            font-size:
+                    clamp(
+                            26px,
+                            5vw,
+                            46px
+                    );
+
+            letter-spacing:
+                    2px;
+
+            line-height:
+                    1.1;
+
+        }
+
+        .header p {
+
+            margin:
+                    10px 0 0;
+
+            color:
+                    var(--yellow);
+
+            font-size:
+                    14px;
+
+        }
+
+        .gradient-line {
+
+            height:
+                    5px;
+
+            margin:
+                    22px 0;
+
+            border-radius:
+                    999px;
+
+            background:
+                    linear-gradient(
+                            90deg,
+                            var(--wine),
+                            var(--red),
+                            var(--orange),
+                            var(--yellow)
+                    );
+
+        }
+
+        .lights {
+
+            display:
+                    flex;
+
+            justify-content:
+                    center;
+
+            gap:
+                    28px;
+
+            margin:
+                    18px 0 22px;
+
+        }
+
+        .light {
+
+            width:
+                    11px;
+
+            height:
+                    11px;
+
+            border-radius:
+                    50%;
+
+            background:
+                    var(--wine);
+
+            transition:
+                    background .2s,
+                    box-shadow .2s;
+
+        }
+
+        .lights.running
+        .light {
+
+            animation:
+                    casinoLight
+                    .45s
+                    infinite
+                    alternate;
+
+        }
+
+        .lights.running
+        .light:nth-child(2) {
+            animation-delay:
+                    .08s;
+        }
+
+        .lights.running
+        .light:nth-child(3) {
+            animation-delay:
+                    .16s;
+        }
+
+        .lights.running
+        .light:nth-child(4) {
+            animation-delay:
+                    .24s;
+        }
+
+        .lights.running
+        .light:nth-child(5) {
+            animation-delay:
+                    .32s;
+        }
+
+        .lights.running
+        .light:nth-child(6) {
+            animation-delay:
+                    .40s;
+        }
+
+        @keyframes casinoLight {
+
+            0% {
+
+                background:
+                        var(--wine);
+
+                box-shadow:
+                        0 0 0
+                        transparent;
+
+            }
+
+            50% {
+
+                background:
+                        var(--orange);
+
+            }
+
+            100% {
+
+                background:
+                        var(--yellow);
+
+                box-shadow:
+                        0 0 18px
+                        var(--orange);
+
+            }
+
+        }
+
+        .machine {
+
+            padding:
+                    22px;
+
+            border:
+                    2px solid
+                    var(--red);
+
+            border-radius:
+                    16px;
+
+            background:
+                    var(--dark);
+
+        }
+
+        .slots {
+
+            display:
+                    grid;
+
+            grid-template-columns:
+        repeat(
+          3,
+          minmax(
+                  0,
+                  1fr
+          )
+        );
+
+            gap:
+                    16px;
+
+        }
+
+        .slot {
+
+            min-width:
+                    0;
+
+            height:
+                    180px;
+
+            position:
+                    relative;
+
+            display:
+                    flex;
+
+            flex-direction:
+                    column;
+
+            align-items:
+                    center;
+
+            justify-content:
+                    center;
+
+            border:
+                    2px solid
+                    var(--wine);
+
+            border-radius:
+                    12px;
+
+            overflow:
+                    hidden;
+
+            background:
+
+                    linear-gradient(
+                            180deg,
+                            #0B0403,
+                            #160906
+                    );
+
+        }
+
+        .slot::before,
+        .slot::after {
+
+            content:
+                    "";
+
+            position:
+                    absolute;
+
+            left:
+                    0;
+
+            width:
+                    100%;
+
+            height:
+                    28px;
+
+            z-index:
+                    3;
+
+            pointer-events:
+                    none;
+
+        }
+
+        .slot::before {
+
+            top:
+                    0;
+
+            background:
+                    linear-gradient(
+                            to bottom,
+                            rgba(
+                                    0,
+                                    0,
+                                    0,
+                                    .75
+                            ),
+                            transparent
+                    );
+
+        }
+
+        .slot::after {
+
+            bottom:
+                    0;
+
+            background:
+                    linear-gradient(
+                            to top,
+                            rgba(
+                                    0,
+                                    0,
+                                    0,
+                                    .75
+                            ),
+                            transparent
+                    );
+
+        }
+
+        .icon {
+
+            display:
+                    flex;
+
+            align-items:
+                    center;
+
+            justify-content:
+                    center;
+
+            min-height:
+                    75px;
+
+            font-size:
+                    clamp(
+                            32px,
+                            6vw,
+                            54px
+                    );
+
+            font-weight:
+                    bold;
+
+            color:
+                    var(--cream);
+
+            transition:
+                    transform .1s,
+                    filter .1s;
+
+        }
+
+        .technology {
+
+            margin-top:
+                    8px;
+
+            color:
+                    var(--orange);
+
+            font-size:
+                    13px;
+
+            font-weight:
+                    bold;
+
+            letter-spacing:
+                    1px;
+
+            text-align:
+                    center;
+
+        }
+
+        .slot.spinning
+        .icon {
+
+            animation:
+                    reelShake
+                    .12s
+                    linear
+                    infinite;
+
+            filter:
+                    blur(
+                            1px
+                    );
+
+        }
+
+        @keyframes reelShake {
+
+            0% {
+                transform:
+                        translateY(
+                                -5px
+                        );
+            }
+
+            50% {
+                transform:
+                        translateY(
+                                5px
+                        );
+            }
+
+            100% {
+                transform:
+                        translateY(
+                                -5px
+                        );
+            }
+
+        }
+
+        .controls {
+
+            display:
+                    flex;
+
+            flex-wrap:
+                    wrap;
+
+            align-items:
+                    center;
+
+            justify-content:
+                    center;
+
+            gap:
+                    12px;
+
+            margin-top:
+                    24px;
+
+        }
+
+        .spin {
+
+            min-height:
+                    48px;
+
+            padding:
+                    13px 26px;
+
+            border:
+                    2px solid
+                    var(--yellow);
+
+            border-radius:
+                    8px;
+
+            cursor:
+                    pointer;
+
+            color:
+                    var(--dark);
+
+            background:
+                    var(--yellow);
+
+            font-family:
+                    inherit;
+
+            font-size:
+                    16px;
+
+            font-weight:
+                    bold;
+
+            letter-spacing:
+                    1px;
+
+            transition:
+
+                    transform .15s,
+
+                    background .15s,
+
+                    color .15s,
+
+                    box-shadow .15s;
+
+        }
+
+        .spin:hover {
+
+            transform:
+                    translateY(
+                            -2px
+                    );
+
+            background:
+                    var(--orange);
+
+            border-color:
+                    var(--orange);
+
+            box-shadow:
+                    0 0 20px
+                    rgba(
+                            217,
+                            119,
+                            43,
+                            .35
+                    );
+
+        }
+
+        .spin:active {
+
+            transform:
+                    translateY(
+                            1px
+                    );
+
+        }
+
+        .spin:disabled {
+
+            cursor:
+                    not-allowed;
+
+            opacity:
+                    .5;
+
+            transform:
+                    none;
+
+            box-shadow:
+                    none;
+
+        }
+
+        .shortcut {
+
+            color:
+                    #C7A987;
+
+            font-size:
+                    12px;
+
+        }
+
+        kbd {
+
+            padding:
+                    3px 6px;
+
+            border:
+                    1px solid
+                    var(--wine);
+
+            border-radius:
+                    4px;
+
+            color:
+                    var(--cream);
+
+            background:
+                    var(--dark-2);
+
+            font-family:
+                    inherit;
+
+        }
+
+        .result {
+
+            min-height:
+                    70px;
+
+            margin-top:
+                    24px;
+
+            display:
+                    flex;
+
+            align-items:
+                    center;
+
+            justify-content:
+                    center;
+
+            padding:
+                    15px;
+
+            border:
+                    1px dashed
+                    var(--wine);
+
+            border-radius:
+                    10px;
+
+            color:
+                    var(--yellow);
+
+            background:
+                    rgba(
+                            17,
+                            8,
+                            5,
+                            .6
+                    );
+
+            text-align:
+                    center;
+
+            font-weight:
+                    bold;
+
+            line-height:
+                    1.5;
+
+        }
+
+        .result.jackpot {
+
+            color:
+                    var(--cream);
+
+            border-color:
+                    var(--yellow);
+
+            animation:
+                    jackpotPulse
+                    .55s
+                    infinite
+                    alternate;
+
+        }
+
+        @keyframes jackpotPulse {
+
+            from {
+
+                box-shadow:
+                        0 0 5px
+                        rgba(
+                                229,
+                                185,
+                                74,
+                                .2
+                        );
+
+            }
+
+            to {
+
+                box-shadow:
+                        0 0 30px
+                        rgba(
+                                229,
+                                185,
+                                74,
+                                .65
+                        );
+
+            }
+
+        }
+
+        .legend {
+
+            margin-top:
+                    28px;
+
+            display:
+                    grid;
+
+            grid-template-columns:
+        repeat(
+          3,
+          minmax(
+                  0,
+                  1fr
+          )
+        );
+
+            gap:
+                    12px;
+
+        }
+
+        .legend-item {
+
+            padding:
+                    12px;
+
+            border-left:
+                    3px solid
+                    var(--wine);
+
+            background:
+                    var(--dark-2);
+
+            color:
+                    #C7A987;
+
+            font-size:
+                    12px;
+
+            line-height:
+                    1.5;
+
+        }
+
+        .legend-item:nth-child(2) {
+
+            border-color:
+                    var(--red);
+
+        }
+
+        .legend-item:nth-child(3) {
+
+            border-color:
+                    var(--orange);
+
+        }
+
+        .legend-item strong {
+
+            display:
+                    block;
+
+            margin-bottom:
+                    4px;
+
+            color:
+                    var(--cream);
+
+        }
+
+        footer {
+
+            margin-top:
+                    26px;
+
+            display:
+                    flex;
+
+            flex-wrap:
+                    wrap;
+
+            justify-content:
+                    space-between;
+
+            gap:
+                    10px;
+
+            color:
+                    #8F6F59;
+
+            font-size:
+                    11px;
+
+        }
+
+        footer a {
+
+            color:
+                    var(--orange);
+
+            text-decoration:
+                    none;
+
+        }
+
+        footer a:hover {
+
+            color:
+                    var(--yellow);
+
+            text-decoration:
+                    underline;
+
+        }
+
+        @media (
+        max-width:
+                620px
+        ) {
+
+            body {
+
+                padding:
+                        16px;
+
+            }
+
+            .casino {
+
+                padding:
+                        18px;
+
+            }
+
+            .machine {
+
+                padding:
+                        14px;
+
+            }
+
+            .slots {
+
+                gap:
+                        8px;
+
+            }
+
+            .slot {
+
+                height:
+                        135px;
+
+            }
+
+            .technology {
+
+                font-size:
+                        10px;
+
+            }
+
+            .legend {
+
+                grid-template-columns:
+          1fr;
+
+            }
+
+        }
+
+        @media (
+        prefers-reduced-motion:
+                reduce
+        ) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                        .001ms !important;
+
+                animation-iteration-count:
+                        1 !important;
+
+                scroll-behavior:
+                        auto !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<main class="casino">
+
+    <header class="header">
+
+        <h1>
+            🎰 GAHASHI'S DEV CASINO
+        </h1>
+
+        <p>
+            gamble responsibly with production code
+        </p>
+
+    </header>
+
+    <div class="gradient-line"></div>
+
+    <div
+            class="lights"
+            id="lights"
+            aria-hidden="true"
+    >
+
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+
+    </div>
+
+    <section
+            class="machine"
+            aria-label="Dev slot machine"
+    >
+
+        <div class="slots">
+
+            <div
+                    class="slot"
+                    id="slot1"
+            >
+
+                <div
+                        class="icon"
+                        id="icon1"
+                >
+                    ⚛️
+                </div>
+
+                <div
+                        class="technology"
+                        id="tech1"
+                >
+                    React
+                </div>
+
+            </div>
+
+            <div
+                    class="slot"
+                    id="slot2"
+            >
+
+                <div
+                        class="icon"
+                        id="icon2"
+                >
+                    🟢
+                </div>
+
+                <div
+                        class="technology"
+                        id="tech2"
+                >
+                    Node.js
+                </div>
+
+            </div>
+
+            <div
+                    class="slot"
+                    id="slot3"
+            >
+
+                <div
+                        class="icon"
+                        id="icon3"
+                >
+                    🐳
+                </div>
+
+                <div
+                        class="technology"
+                        id="tech3"
+                >
+                    Docker
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="controls">
+
+            <button
+                    class="spin"
+                    id="spin"
+                    type="button"
+            >
+                🎰 SPIN THE STACK
+            </button>
+
+            <span class="shortcut">
+          ou pressione
+          <kbd>SPACE</kbd>
+        </span>
+
+        </div>
+
+        <div
+                class="result"
+                id="result"
+                aria-live="polite"
+        >
+            insert coffee ☕ and press SPIN_
+        </div>
+
+    </section>
+
+    <section
+            class="legend"
+            aria-label="Casino categories"
+    >
+
+        <div class="legend-item">
+
+            <strong>
+                BUILD
+            </strong>
+
+            React, Next.js, TypeScript,
+            JavaScript, PHP...
+
+        </div>
+
+        <div class="legend-item">
+
+            <strong>
+                AUTOMATE
+            </strong>
+
+            Node.js, Redis, APIs,
+            Playwright, Fastify...
+
+        </div>
+
+        <div class="legend-item">
+
+            <strong>
+                OPERATE
+            </strong>
+
+            Docker, Linux, Ubuntu,
+            SSH, systemd...
+
+        </div>
+
+    </section>
+
+    <footer>
+
+      <span>
+        gahashi@github
+        •
+        build → automate → operate
+      </span>
+
+        <a
+                href="https://github.com/gahashi"
+        >
+            ← back to GitHub
+        </a>
+
+    </footer>
+
+</main>
+
+<script>
+
+    const technologies = [
+
+        {
+            icon: "⚛️",
+            name: "React",
+            type: "build"
+        },
+
+        {
+            icon: "▲",
+            name: "Next.js",
+            type: "build"
+        },
+
+        {
+            icon: "TS",
+            name: "TypeScript",
+            type: "build"
+        },
+
+        {
+            icon: "JS",
+            name: "JavaScript",
+            type: "build"
+        },
+
+        {
+            icon: "🐘",
+            name: "PHP",
+            type: "build"
+        },
+
+        {
+            icon: "🔥",
+            name: "CodeIgniter",
+            type: "build"
+        },
+
+        {
+            icon: "🟢",
+            name: "Node.js",
+            type: "automate"
+        },
+
+        {
+            icon: "⚡",
+            name: "Fastify",
+            type: "automate"
+        },
+
+        {
+            icon: "🔴",
+            name: "Redis",
+            type: "automate"
+        },
+
+        {
+            icon: "🎭",
+            name: "Playwright",
+            type: "automate"
+        },
+
+        {
+            icon: "API",
+            name: "REST API",
+            type: "automate"
+        },
+
+        {
+            icon: "🐳",
+            name: "Docker",
+            type: "operate"
+        },
+
+        {
+            icon: "🐧",
+            name: "Linux",
+            type: "operate"
+        },
+
+        {
+            icon: "🟠",
+            name: "Ubuntu",
+            type: "operate"
+        },
+
+        {
+            icon: "SSH",
+            name: "SSH",
+            type: "operate"
+        },
+
+        {
+            icon: "⚙️",
+            name: "systemd",
+            type: "operate"
+        },
+
+        {
+            icon: "🐬",
+            name: "MariaDB",
+            type: "data"
+        },
+
+        {
+            icon: "🐘",
+            name: "PostgreSQL",
+            type: "data"
+        },
+
+        {
+            icon: "◇",
+            name: "Prisma",
+            type: "data"
+        }
+
+    ];
+
+    const slots = [
+
+        {
+            element:
+                document.getElementById(
+                    "slot1"
+                ),
+
+            icon:
+                document.getElementById(
+                    "icon1"
+                ),
+
+            tech:
+                document.getElementById(
+                    "tech1"
+                )
+        },
+
+        {
+            element:
+                document.getElementById(
+                    "slot2"
+                ),
+
+            icon:
+                document.getElementById(
+                    "icon2"
+                ),
+
+            tech:
+                document.getElementById(
+                    "tech2"
+                )
+        },
+
+        {
+            element:
+                document.getElementById(
+                    "slot3"
+                ),
+
+            icon:
+                document.getElementById(
+                    "icon3"
+                ),
+
+            tech:
+                document.getElementById(
+                    "tech3"
+                )
+        }
+
+    ];
+
+    const spinButton =
+        document.getElementById(
+            "spin"
+        );
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+    const lights =
+        document.getElementById(
+            "lights"
+        );
+
+    let spinning =
+        false;
+
+    function randomTechnology() {
+
+        return technologies[
+            Math.floor(
+                Math.random()
+                *
+                technologies.length
+            )
+            ];
+
+    }
+
+    function renderSlot(
+        slot,
+        technology
+    ) {
+
+        slot.icon.textContent =
+            technology.icon;
+
+        slot.tech.textContent =
+            technology.name;
+
+    }
+
+    function getJackpotMessage(
+        technology
+    ) {
+
+        const messages = {
+
+            React:
+                "⚛️⚛️⚛️ JACKPOT — component rendered without useEffect abuse.",
+
+            "Next.js":
+                "▲▲▲ JACKPOT — production build completed. Somehow.",
+
+            TypeScript:
+                "TS TS TS — JACKPOT: 0 errors. The prophecy has been fulfilled.",
+
+            JavaScript:
+                "JS JS JS — JACKPOT: undefined is temporarily under control.",
+
+            PHP:
+                "🐘🐘🐘 JACKPOT — legacy never dies.",
+
+            CodeIgniter:
+                "🔥🔥🔥 JACKPOT — MVC HAS ENTERED THE CASINO.",
+
+            "Node.js":
+                "🟢🟢🟢 JACKPOT — event loop is feeling lucky.",
+
+            Fastify:
+                "⚡⚡⚡ JACKPOT — response time: yes.",
+
+            Redis:
+                "🔴🔴🔴 JACKPOT — CACHE HIT 🔥",
+
+            Playwright:
+                "🎭🎭🎭 JACKPOT — browser automation completed without CAPTCHA.",
+
+            "REST API":
+                "API API API — 200 OK 🎰",
+
+            Docker:
+                "🐳🐳🐳 JACKPOT — works in my container.",
+
+            Linux:
+                "🐧🐧🐧 JACKPOT — sudo jackpot",
+
+            Ubuntu:
+                "🟠🟠🟠 JACKPOT — apt update && profit",
+
+            SSH:
+                "SSH SSH SSH — connection established to JACKPOT",
+
+            systemd:
+                "⚙️⚙️⚙️ JACKPOT — service status: active (running)",
+
+            MariaDB:
+                "🐬🐬🐬 JACKPOT — transaction committed.",
+
+            PostgreSQL:
+                "🐘🐘🐘 JACKPOT — ACID certified luck.",
+
+            Prisma:
+                "◇ ◇ ◇ — JACKPOT migrated successfully."
+
+        };
+
+        return (
+            messages[
+                technology.name
+                ]
+            ??
+            "🎰 JACKPOT — BUILD SUCCESSFUL"
+        );
+
+    }
+
+    const normalMessages = [
+
+        "✅ build successful",
+
+        "🔥 works on my machine",
+
+        "☕ another commit survived",
+
+        "🐛 no bugs detected*",
+
+        "🚀 deployed successfully",
+
+        "production is probably fine 👍",
+
+        "git push --force? 😈",
+
+        "404 jackpot not found",
+
+        "sudo make me a jackpot",
+
+        "npm install luck",
+
+        "LGTM 👍",
+
+        "tests passed. suspicious.",
+
+        "merge conflict avoided. +10 luck.",
+
+        "CI is green. Nobody touch anything.",
+
+        "localhost never disappoints.",
+
+        "one more spin before production."
+
+    ];
+
+    function evaluateResult(
+        final
+    ) {
+
+        const sameTechnology =
+            final.every(
+                item =>
+                    item.name
+                    ===
+                    final[0].name
+            );
+
+        if (
+            sameTechnology
+        ) {
+
+            result.classList.add(
+                "jackpot"
+            );
+
+            result.textContent =
+                getJackpotMessage(
+                    final[0]
+                );
+
+            return;
+
+        }
+
+        const sameCategory =
+            final.every(
+                item =>
+                    item.type
+                    ===
+                    final[0].type
+            );
+
+        if (
+            sameCategory
+        ) {
+
+            result.classList.remove(
+                "jackpot"
+            );
+
+            const categoryMessages = {
+
+                build:
+                    "🧱 BUILD COMBO — frontend gods approve.",
+
+                automate:
+                    "⚙️ AUTOMATION COMBO — manual work eliminated.",
+
+                operate:
+                    "🖥️ INFRA COMBO — server is still alive.",
+
+                data:
+                    "💾 DATA COMBO — transaction committed."
+
+            };
+
+            result.textContent =
+                categoryMessages[
+                    final[0].type
+                    ]
+                ??
+                "STACK COMBO";
+
+            return;
+
+        }
+
+        result.classList.remove(
+            "jackpot"
+        );
+
+        result.textContent =
+            normalMessages[
+                Math.floor(
+                    Math.random()
+                    *
+                    normalMessages.length
+                )
+                ];
+
+    }
+
+    function spin() {
+
+        if (
+            spinning
+        ) {
+            return;
+        }
+
+        spinning =
+            true;
+
+        spinButton.disabled =
+            true;
+
+        result.classList.remove(
+            "jackpot"
+        );
+
+        result.textContent =
+            "compiling luck...";
+
+        lights.classList.add(
+            "running"
+        );
+
+        slots.forEach(
+            slot =>
+                slot.element
+                    .classList
+                    .add(
+                        "spinning"
+                    )
+        );
+
+        const timers =
+            slots.map(
+                (
+                    slot,
+                    index
+                ) => {
+
+                    let ticks =
+                        0;
+
+                    const maxTicks =
+                        14
+                        +
+                        index
+                        *
+                        6;
+
+                    return setInterval(
+                        () => {
+
+                            renderSlot(
+                                slot,
+                                randomTechnology()
+                            );
+
+                            ticks++;
+
+                            if (
+                                ticks
+                                >=
+                                maxTicks
+                            ) {
+
+                                clearInterval(
+                                    timers[
+                                        index
+                                        ]
+                                );
+
+                            }
+
+                        },
+                        75
+                        +
+                        index
+                        *
+                        12
+                    );
+
+                }
+            );
+
+        setTimeout(
+            () => {
+
+                timers.forEach(
+                    timer =>
+                        clearInterval(
+                            timer
+                        )
+                );
+
+                const final = [
+
+                    randomTechnology(),
+
+                    randomTechnology(),
+
+                    randomTechnology()
+
+                ];
+
+                final.forEach(
+                    (
+                        technology,
+                        index
+                    ) => {
+
+                        renderSlot(
+                            slots[
+                                index
+                                ],
+                            technology
+                        );
+
+                    }
+                );
+
+                slots.forEach(
+                    slot =>
+                        slot.element
+                            .classList
+                            .remove(
+                                "spinning"
+                            )
+                );
+
+                lights.classList.remove(
+                    "running"
+                );
+
+                evaluateResult(
+                    final
+                );
+
+                spinButton.disabled =
+                    false;
+
+                spinning =
+                    false;
+
+                spinButton.focus();
+
+            },
+            2200
+        );
+
+    }
+
+    spinButton.addEventListener(
+        "click",
+        spin
+    );
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            const target =
+                event.target;
+
+            const editable =
+                target instanceof HTMLInputElement
+                ||
+                target instanceof HTMLTextAreaElement
+                ||
+                target instanceof HTMLSelectElement;
+
+            if (
+                editable
+            ) {
+                return;
+            }
+
+            if (
+                event.code
+                ===
+                "Space"
+            ) {
+
+                event.preventDefault();
+
+                spin();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>
