@@ -1,10 +1,5 @@
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1E293B,100:334155&height=220&section=header&text=Gabriel%20U.%20Brito&fontSize=48&fontColor=F8FAFC&fontAlignY=38&animation=fadeIn&desc=Full%20Stack%20%E2%80%A2%20Automation%20%E2%80%A2%20Infrastructure&descSize=18&descAlignY=58" alt="Gabriel U. Brito" />
 <div align="center">
-
-# Gabriel U. Brito
-
-### Full Stack Developer · Automation · Infrastructure
-
-Construindo sistemas, automatizando processos e entendendo o que acontece por baixo da aplicação.
 
 [![GitHub](https://img.shields.io/badge/@gahashi-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/gahashi)
 [![Email](https://img.shields.io/badge/gabrielbritotody%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:gabrielbritotody@gmail.com)
