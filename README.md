@@ -32,6 +32,16 @@ Full Stack • Systems • Automation • Infrastructure
 Computer Science @ UNIVALI
 ```
 
+<div align="center">
+
+<img
+src="./assets/contribution-breakout.svg"
+width="100%"
+alt="GitHub Contribution Breakout"
+/>
+
+</div>
+
 ---
 
 ## `01 / engineering`
@@ -73,11 +83,11 @@ Integrações, automações e processamento assíncrono.
 
 <img src="https://img.shields.io/badge/Fastify-A63D2F?style=flat-square&logo=fastify&logoColor=F4E7C5">
 <img src="https://img.shields.io/badge/Redis-A63D2F?style=flat-square&logo=redis&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/BullMQ-A63D2F?style=flat-square&logoColor=F4E7C5">
+<img src="https://img.shields.io/badge/BullMQ-A63D2F?style=flat-square">
 <img src="https://img.shields.io/badge/Playwright-A63D2F?style=flat-square&logo=playwright&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/Browserless-A63D2F?style=flat-square&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/REST_API-A63D2F?style=flat-square&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/Webhooks-A63D2F?style=flat-square&logoColor=F4E7C5">
+<img src="https://img.shields.io/badge/Browserless-A63D2F?style=flat-square">
+<img src="https://img.shields.io/badge/REST_API-A63D2F?style=flat-square">
+<img src="https://img.shields.io/badge/Webhooks-A63D2F?style=flat-square">
 
 </p>
 
@@ -97,7 +107,7 @@ Containers, servidores e ambientes de desenvolvimento.
 <img src="https://img.shields.io/badge/Linux-D9772B?style=flat-square&logo=linux&logoColor=F4E7C5">
 <img src="https://img.shields.io/badge/Ubuntu-D9772B?style=flat-square&logo=ubuntu&logoColor=F4E7C5">
 <img src="https://img.shields.io/badge/WSL-D9772B?style=flat-square&logo=linux&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/SSH-D9772B?style=flat-square&logoColor=F4E7C5">
+<img src="https://img.shields.io/badge/SSH-D9772B?style=flat-square">
 <img src="https://img.shields.io/badge/systemd-D9772B?style=flat-square&logo=linux&logoColor=F4E7C5">
 <img src="https://img.shields.io/badge/Git-D9772B?style=flat-square&logo=git&logoColor=F4E7C5">
 
@@ -125,8 +135,8 @@ Containers, servidores e ambientes de desenvolvimento.
 
 <p>
 
-<img src="https://img.shields.io/badge/status-building-A63D2F?style=flat-square&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/full--stack-project-D9772B?style=flat-square&logoColor=F4E7C5">
+<img src="https://img.shields.io/badge/status-building-A63D2F?style=flat-square">
+<img src="https://img.shields.io/badge/full--stack-project-D9772B?style=flat-square">
 
 </p>
 
@@ -206,8 +216,8 @@ architecture
 
 <p>
 
-<img src="https://img.shields.io/badge/distributed-jobs-A63D2F?style=flat-square&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/browser-automation-D9772B?style=flat-square&logoColor=F4E7C5">
+<img src="https://img.shields.io/badge/distributed-jobs-A63D2F?style=flat-square">
+<img src="https://img.shields.io/badge/browser-automation-D9772B?style=flat-square">
 
 </p>
 
@@ -231,9 +241,9 @@ buscas, coleta e processamento de dados.
 <img src="https://img.shields.io/badge/Node.js-1A0F0A?style=flat-square&logo=nodedotjs&logoColor=F4E7C5">
 <img src="https://img.shields.io/badge/Fastify-1A0F0A?style=flat-square&logo=fastify&logoColor=F4E7C5">
 <img src="https://img.shields.io/badge/Redis-1A0F0A?style=flat-square&logo=redis&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/BullMQ-1A0F0A?style=flat-square&logoColor=F4E7C5">
+<img src="https://img.shields.io/badge/BullMQ-1A0F0A?style=flat-square">
 <img src="https://img.shields.io/badge/Playwright-1A0F0A?style=flat-square&logo=playwright&logoColor=F4E7C5">
-<img src="https://img.shields.io/badge/Browserless-1A0F0A?style=flat-square&logoColor=F4E7C5">
+<img src="https://img.shields.io/badge/Browserless-1A0F0A?style=flat-square">
 
 </p>
 

@@ -1,0 +1,57 @@
+name: Generate Contribution Breakout
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "17 3 * * *"
+
+  push:
+    branches:
+      - main
+
+    paths:
+      - "scripts/generate_breakout.py"
+      - ".github/workflows/contribution-breakout.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: Generate breakout animation
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate SVG
+        env:
+          GITHUB_USER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+
+        run: |
+          python scripts/generate_breakout.py
+
+      - name: Commit updated animation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/contribution-breakout.svg
+
+          if git diff --cached --quiet; then
+            echo "Contribution graph has not changed."
+            exit 0
+          fi
+
+          git commit -m "chore: update contribution breakout"
+          git push
