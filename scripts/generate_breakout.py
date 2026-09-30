@@ -379,11 +379,11 @@ def generate_svg(calendar):
 
     total_points = len(points)
 
-    duration = clamp(
-        total_points * 0.045,
-        20,
-        42
-    )
+duration = clamp(
+    total_points * 0.11,
+    50,
+    120
+)
 
 
     # -----------------------------------------------------
